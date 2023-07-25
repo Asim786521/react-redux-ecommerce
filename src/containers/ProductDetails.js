@@ -1,20 +1,22 @@
-import React, { useEffect ,useState} from "react";
+import React, { useEffect  } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Segment } from 'semantic-ui-react'
+ 
 import {
   selectedProduct,
   removeSelectedProduct,
-  cartCount
+  cartCount,
+  cartDisplay,
+ 
 } from "../redux/actions/productsActions";
-import Header from "./Header";
+ 
 const ProductDetails = () => {
  
   
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
-  
+   
 let count=useSelector((state)=>state)
 console.log("count state initial",count);
   const { image, title, price, category, description } = product;
@@ -34,13 +36,14 @@ console.log("count state initial",count);
       dispatch(removeSelectedProduct());
     };
   }, [productId]);
- const buttonCount=()=>{
-  
+ const buttonCount=( )=>{
  
+   
+   
   dispatch(cartCount(count.count.count))
-//   setCount(count+1)
- 
- 
+//  dispatch(displayCart(product))
+console.log("product state final",product);
+dispatch(cartDisplay(product))
 }
   
   return (
@@ -54,12 +57,12 @@ console.log("count state initial",count);
             <div className="ui vertical divider">AND</div>
             <div className="middle aligned row">
               <div className="column lp">
-                <img className="ui fluid image" src={image} />
+                <img className="ui fluid image" alt=""src={image} />
               </div>
               <div className="column rp">
                 <h1>{title}</h1>
                 <h2>
-                  <a className="ui teal tag label">${price}</a>
+                  <a className="ui teal tag label" href="/">${price}</a>
                 </h2>
                 <h3 className="ui brown block header">{category}</h3>
                 <p>{description}</p>

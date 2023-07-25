@@ -21,8 +21,22 @@ export const setProducts = (products) => {
   };
 
   export const cartCount=(count)=>{
+
     return{
       type:ActionTypes.CART_COUNT,
       payload:count
+    }
+  };
+
+  export const cartProducts=(cartData)=>{
+    return{
+      type:ActionTypes.CART_PRODUCTS,
+      payload:cartData
+    }
+  }
+  export const cartDisplay=(displaycart)=>{
+    return{
+      type:ActionTypes.CART_DISPLAY,
+      payload:displaycart
     }
   }

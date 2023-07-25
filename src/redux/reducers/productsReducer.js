@@ -1,10 +1,16 @@
 import { ActionTypes } from "../constants/action-types";
 const intialState = {
   products: [],
+  cart:[]
+
 };
 const intialCount = {
   count: 0,
 };
+
+const initialDisplay={
+  cartvalue:[]
+}
 
 
 
@@ -30,12 +36,33 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
 };
 
 export const cartCount=(state=intialCount,{type,payload})=>{
-console.log("count type",type);
-console.log("count payload",payload);
+ 
 switch(type){
   case ActionTypes.CART_COUNT:
     return {...state,count:payload+1};
     default:
       return state
 }
+};
+export const cartProducts=(state=intialState,{type,payload})=>{
+  switch(type){
+
+    case ActionTypes.CART_PRODUCTS:
+      return {...state,cart:payload}
+        default:
+          return state
+      
+  }
+}
+export const cartDisplay=(state=initialDisplay,{type,payload})=>{
+  console.log("payload received",payload)
+  console.log(" type recieved",type)
+  switch(type){
+
+    case ActionTypes.CART_DISPLAY:
+      return {...state,cartvalue:[payload]}
+        default:
+          return state
+      
+  }
 }
