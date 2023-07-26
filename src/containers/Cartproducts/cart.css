@@ -1,0 +1,8 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100h !important;
+    width: 100%;
+    margin-top: 2.5rem;
+ 
+    }
+    }

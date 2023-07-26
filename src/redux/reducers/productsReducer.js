@@ -1,4 +1,5 @@
 import { ActionTypes } from "../constants/action-types";
+ 
 const intialState = {
   products: [],
   cart:[]
@@ -10,8 +11,7 @@ const intialCount = {
 
 const initialDisplay={
   cartvalue:[]
-}
-
+};
 
 
 export const productsReducer = (state = intialState, { type, payload }) => {
@@ -60,9 +60,11 @@ export const cartDisplay=(state=initialDisplay,{type,payload})=>{
   switch(type){
 
     case ActionTypes.CART_DISPLAY:
-      return {...state,cartvalue:[payload]}
+      return {...state,cartvalue:[...state.cartvalue].concat(payload)}
         default:
           return state
       
   }
 }
+
+ 

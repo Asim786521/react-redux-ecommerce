@@ -3,13 +3,17 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
  
+ 
 import {
   selectedProduct,
   removeSelectedProduct,
   cartCount,
-  cartDisplay,
+  cartDisplay
+ 
  
 } from "../redux/actions/productsActions";
+
+import { addToCart } from "../redux/reducers/cartSlice";
  
 const ProductDetails = () => {
  
@@ -36,14 +40,17 @@ console.log("count state initial",count);
       dispatch(removeSelectedProduct());
     };
   }, [productId]);
- const buttonCount=( )=>{
+
+
+ const buttonCount=( data)=>{
  
-   
+   console.log("product data is",data);
    
   dispatch(cartCount(count.count.count))
-//  dispatch(displayCart(product))
-console.log("product state final",product);
-dispatch(cartDisplay(product))
+ 
+dispatch(cartDisplay(data))
+ 
+
 }
   
   return (
@@ -72,7 +79,7 @@ dispatch(cartDisplay(product))
                   </div>
                    
       
-                  <div >      <button   className="ui primary button"   onClick={buttonCount}>Add to Cart  </button></div>
+                  <div >      <button   className="ui primary button"   onClick={()=>buttonCount(product) }>Add to Cart  </button></div>
                 </div>  
               </div>
             </div>
@@ -83,4 +90,7 @@ dispatch(cartDisplay(product))
   );
 };
 
+ 
+
+  
 export default ProductDetails;
