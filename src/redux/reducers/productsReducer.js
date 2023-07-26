@@ -10,7 +10,7 @@ const intialCount = {
 };
 
 const initialDisplay={
-  cartvalue:[],
+  cartvalue:[ ],
   cartTotalQuantity:0
 };
 
@@ -29,8 +29,8 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
       return { ...state, ...payload };
-    case ActionTypes.REMOVE_SELECTED_PRODUCT:
-      return {};
+    // case ActionTypes.REMOVE_SELECTED_PRODUCT:
+    //   return {};
     default:
       return state;
   }
@@ -56,6 +56,7 @@ export const cartProducts=(state=intialState,{type,payload})=>{
   }
 }
 export const cartDisplay=(state=initialDisplay,{type,payload})=>{
+ 
   console.log("payload received",payload)
   console.log(" type recieved",type)
   switch(type){
@@ -64,11 +65,12 @@ export const cartDisplay=(state=initialDisplay,{type,payload})=>{
 
   const itemIndex=  state.cartvalue.findIndex((item)=>item.id === payload.id)
 
- if(itemIndex >=0){
-  console.log("itemindex found",itemIndex);
-   return { ...state,cartvalue:[state.cartvalue[itemIndex] +=1]}
+ if(itemIndex >=0){ 
+  return{...state, cartQuantity:state.cartvalue.push[{cartQuantity:itemIndex+1}]}
+  //  return { ...state,cartvalue:[...state.cartvalue,state.cartvalue[itemIndex]=+1]}
  }else{
-   return {...state,cartvalue:[...state.cartvalue].concat(payload)}
+  
+   return {...state,cartvalue:[...state.cartvalue  ].concat(payload  )}
         
  }
      default:

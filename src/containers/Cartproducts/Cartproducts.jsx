@@ -3,24 +3,19 @@ import React, { useEffect ,useState} from "react";
 import axios from "axios";
  
 import { useDispatch, useSelector } from "react-redux";
-import { cartProducts } from "../../redux/reducers/productsReducer";  
+ 
 import "./cart.css"
 const Cartproducts = () => {
   const dispatch = useDispatch();
   
 
-  let cartD=useSelector((state)=>state.cartItems.cartvalue)
-  console.log("cartitem-display",cartD)
+  let cartitems=useSelector((state)=>state.cartItems.cartvalue)
+  
 
  
  
-useEffect(() => {
-  // axios.get('https://fakestoreapi.com/carts?userId=1').then((response)=>{
-  //   dispatch(cartProducts(response.data))
-  // })
-      
-},[]);
-  let cartdetails=cartD
+ 
+  let cartdetails=cartitems
    
  const carts= cartdetails.map((cart) => {
     const {id,title,category,image,price } =cart;

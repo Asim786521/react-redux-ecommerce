@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
  
 import {
   selectedProduct,
-  removeSelectedProduct,
+ removeSelectedProduct,
   cartCount,
   cartDisplay
  
@@ -34,7 +34,7 @@ console.log("count state initial",count);
     dispatch(selectedProduct(response.data));
   };
 
-  useEffect(() => {
+ useEffect(() => {
     if (productId && productId !== "") fetchProductDetail(productId);
     return () => {
       dispatch(removeSelectedProduct());
@@ -79,7 +79,7 @@ dispatch(cartDisplay(data))
                   </div>
                    
       
-                  <div >      <button   className="ui primary button"   onClick={()=>buttonCount(product) }>Add to Cart  </button></div>
+                  <div >      <button   className="ui primary button"   onClick={()=>buttonCount(product,) }>Add to Cart  </button></div>
                 </div>  
               </div>
             </div>
