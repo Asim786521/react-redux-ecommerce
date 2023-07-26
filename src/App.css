@@ -147,3 +147,14 @@ padding: 20px 0;
 .item1 {
   grid-column: 1 / span 2;
 }
+
+.cart{
+   min-width: 1025px  ;
+  
+    height: 100h !important;
+    width: 100%;
+    margin-top: 2.5rem;
+ 
+    
+     
+}

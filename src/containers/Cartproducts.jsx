@@ -1,10 +1,10 @@
  
-import React, { useEffect ,useState} from "react";
-import axios from "axios";
+ 
+ 
  
 import { useDispatch, useSelector } from "react-redux";
  
-import "./cart.css"
+ 
 const Cartproducts = () => {
   const dispatch = useDispatch();
   
@@ -26,7 +26,7 @@ const Cartproducts = () => {
  
   
 <div >
-<section class="h-100 h-custom" key={id} >
+<section class="cart" key={id} >
 <div class="container py-5 h-100">
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col">
