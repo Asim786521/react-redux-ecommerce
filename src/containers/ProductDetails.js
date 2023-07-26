@@ -13,7 +13,7 @@ import {
  
 } from "../redux/actions/productsActions";
 
-import { addToCart } from "../redux/reducers/cartSlice";
+ 
  
 const ProductDetails = () => {
  

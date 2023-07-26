@@ -10,7 +10,8 @@ const intialCount = {
 };
 
 const initialDisplay={
-  cartvalue:[]
+  cartvalue:[],
+  cartTotalQuantity:0
 };
 
 
@@ -60,8 +61,17 @@ export const cartDisplay=(state=initialDisplay,{type,payload})=>{
   switch(type){
 
     case ActionTypes.CART_DISPLAY:
-      return {...state,cartvalue:[...state.cartvalue].concat(payload)}
-        default:
+
+  const itemIndex=  state.cartvalue.findIndex((item)=>item.id === payload.id)
+
+ if(itemIndex >=0){
+  console.log("itemindex found",itemIndex);
+   return { ...state,cartvalue:[state.cartvalue[itemIndex] +=1]}
+ }else{
+   return {...state,cartvalue:[...state.cartvalue].concat(payload)}
+        
+ }
+     default:
           return state
       
   }

@@ -11,7 +11,7 @@ const Header = ( ) => {
         <h2 style={{color:'red'}}>€asy Shopp</h2>
    
       </div>
-      <Link style={{fontWeight:'bold' ,fontSize:'2rem',marginRight:'5rem',color:'red'}}to="/carts"> Saved<sup style={count >0?{color:'green'}:{display:'none'}}>{count}</sup></Link>
+      <Link style={{fontWeight:'bold' ,fontSize:'2rem',marginRight:'5rem',color:'red',textDecoration:'none'}}to="/carts">saved<sup style={count >0?{color:'green'}:{display:'none'}}>{count}</sup></Link>
     </div>
   );
 };
